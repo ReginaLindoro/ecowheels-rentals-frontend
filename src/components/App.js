@@ -1,26 +1,14 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import '../../src/css/App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import bike1 from "../images/bike1.jpg"
-import bike2 from "../images/bike2.jpg"
-import scooter1 from "../images/scooter1.jpg"
 import scooter2 from "../images/scooter2.jpg"
-
-import HardwareSet from './HardwareSet';
-
-
+import { HardwareView } from '../features/hardwareSets/HardwareView';
 
 const App = () => {
   const [inputValue, setInputValue] = useState('');
   const hwsets = ['EcoBikes', 'EcoScooters']
-
-  {/*example database*/ }
-  const hwSet1 = {
-    HardwareSet: "1",
-    Capacity: 10000,
-    Available: 9000
-  };
 
   {/*passing in the number as a checkout function*/ }
   const checkOut = (number, setNumber) => {
@@ -35,7 +23,6 @@ const App = () => {
     console.log(number)
     alert("You have checked in " + number + ' ' + hwsets[setNumber])
   }
-
 
   return (
     <div className="App">
@@ -54,7 +41,7 @@ const App = () => {
           <img src={bike1} alt="bike" />
           {/*database information*/}
           <div className='subheader'>
-            <HardwareSet set={hwSet1} />
+            <HardwareView setType='hwset1' />
           </div>
           {/*input value box to check in or check out*/}
           <div className='checkinoutvalue'>
@@ -82,7 +69,7 @@ const App = () => {
           <img src={scooter2} alt="bike" />
           {/*database information*/}
           <div className='subheader'>
-            <HardwareSet set={hwSet1} />
+            <HardwareView setType='hwset2' />
           </div>
           {/*input value box to check in or check out*/}
           <div className='checkinoutvalue'>
