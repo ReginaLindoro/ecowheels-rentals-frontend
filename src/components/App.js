@@ -1,5 +1,6 @@
 import logo from '../images/logo.svg';
 import '../css/App.css';
+import { HardwareView } from '../features/hardwareSets/HardwareView';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <HardwareView />
     </div>
   );
 }
