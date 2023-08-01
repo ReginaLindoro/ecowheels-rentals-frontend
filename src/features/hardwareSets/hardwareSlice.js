@@ -15,7 +15,8 @@ const initialState = {
 //all part of extra-reducers
 export const fetchHardwareSets = createAsyncThunk('hardware/fetchHardwareSets', () => {
     return axios
-        .get('https://jsonblob.com/api/1134247675339595776')
+        // .get('https://jsonblob.com/api/1134247675339595776')
+        .get('http://127.0.0.1:5000/api/getHardware')
         .then((response) => response.data)
     //we don't need the catch block as error is handled
 })
