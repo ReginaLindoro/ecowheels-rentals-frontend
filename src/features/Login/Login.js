@@ -41,13 +41,21 @@ const Login = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':  '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       },
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((data) => {
+
+        // Console log the response
+        console.log('Response from the backend:', data);
+
         // Handle the response from the backend
-        if (data.success) {
+        // if (data.success) { //remove
+        if (data['message'] === 'Success') {
           // Login successful, redirect to a projects page
           console.log('Login successful!');
           navigate('/projects');
@@ -74,19 +82,23 @@ const Login = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':  '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       },
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((data) => {
+
         // Handle the response from the backend
-        if (data.success) {
+        if (data['message'] === 'Success') {
           // Login successful, redirect to a projects page
-          console.log('Login successful!');
+          console.log('Signup successful!');
           navigate('/projects');
         } else {
           // Login failed, show an error message
-          console.log('Login failed. Invalid username or password.');
+          console.log('Signup failed.');
         }
       })
       .catch((error) => {
