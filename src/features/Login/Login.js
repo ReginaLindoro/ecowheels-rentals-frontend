@@ -37,11 +37,11 @@ const Login = () => {
 
     console.log("Data is ", data);
 
-    fetch('http://127.0.0.1:5000/api/login', {
+    fetch('http://127.0.0.1:5000/api/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':  '*',
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       },
@@ -49,9 +49,6 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-
-        // Console log the response
-        console.log('Response from the backend:', data);
 
         // Handle the response from the backend
         // if (data.success) { //remove
@@ -61,12 +58,13 @@ const Login = () => {
           navigate('/projects');
         } else {
           // Login failed, show an error message
-          console.log('Login failed. Invalid username or password.');
+          console.log('Login failed. Invalid username or password');
         }
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+
   }
 
   const handleSignup = () => {
@@ -82,7 +80,7 @@ const Login = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':  '*',
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       },
