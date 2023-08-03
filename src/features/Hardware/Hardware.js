@@ -6,11 +6,17 @@ import { useState } from 'react';
 import bike1 from "../../images/bike1.jpg"
 import scooter2 from "../../images/scooter2.jpg"
 import { HardwareView } from '../hardwareSets/HardwareView';
+import { useNavigate } from 'react-router-dom';
 
-const Hardware = () => {
+const Hardware = ({setIsSignedIn}) => {
     // Your login page UI and logic go here
     const [inputValue, setInputValue] = useState('');
-    const hwsets = ['EcoBikes', 'EcoScooters']
+    const hwsets = ['EcoBikes', 'EcoScooters'];
+    const navigate = useNavigate();
+    const logout = () => {
+        setIsSignedIn(false);
+        navigate('/');
+    };
 
     {/*passing in the number as a checkout function*/ }
     const checkOut = (number, setNumber) => {
@@ -28,6 +34,9 @@ const Hardware = () => {
 
     return (
         <div className="App">
+            <div style={{ display: "flex" }}>
+                <Button style={{ color: "white", marginLeft: "auto" }} onClickCapture={logout}>Sign out</Button>
+            </div>
             {/*title*/}
             <h1>ECO WHEELS RENTAL</h1>
 
