@@ -23,7 +23,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/project" element={<Project setIsSignedIn={setIsSignedIn}/>} />
-        <Route path="/hardware" element={<Hardware setIsSignedIn={setIsSignedIn}/>} />
+        <Route path="/hardwareSets" element={<Hardware setIsSignedIn={setIsSignedIn}/>} />
       </Routes>
     </BrowserRouter>
   );
