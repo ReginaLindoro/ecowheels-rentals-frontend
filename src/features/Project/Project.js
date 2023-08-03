@@ -13,9 +13,6 @@ const Project = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const navigate = useNavigate();
-    const [showLoginPassword, setShowLoginPassword] = React.useState(false);
-    const [showSignupPassword, setShowSignupPassword] = React.useState(false);
-    const [showSignupReenterPassword, setShowSignupReenterPassword] = React.useState(false);
 
     const handleExistingProject = () => {
         // Create a data object containing the project id
