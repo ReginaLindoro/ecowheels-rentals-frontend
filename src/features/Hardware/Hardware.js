@@ -10,12 +10,16 @@ import { HardwareView } from '../hardwareSets/HardwareView';
 import { Card, CardContent, Divider, TextField, Grid, Typography, Select, MenuItem, OutlinedInput, InputAdornment, IconButton, FormControl, InputLabel } from '@mui/material';
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 
-const Hardware = () => {
-    // Hardware react variables 
-    const [inputValue, setInputValue] = useState('');
+const Hardware = ({setIsSignedIn}) => {
+    // Your login page UI and logic go here
     const [selection, setSelection] = useState('');
+    const [inputValue, setInputValue] = useState('');
+    const hwsets = ['EcoBikes', 'EcoScooters'];
     const navigate = useNavigate();
-    const hwsets = ['EcoBikes', 'EcoScooters']
+    const logout = () => {
+        setIsSignedIn(false);
+        navigate('/');
+    };
 
     const createObject = () => {
         if (selection == 1) {
@@ -130,6 +134,10 @@ const Hardware = () => {
 
     return (
         <div className="App">
+            <div style={{ display: "flex" }}>
+                <Button style={{ color: "white", marginLeft: "auto" }} onClickCapture={logout}>Sign out</Button>
+            </div>
+
             <h1 style={{ color: "white" }}>ECO WHEELS RENTAL</h1>
             <Card style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '5% 20%' }}>
                 <CardContent>
@@ -143,6 +151,14 @@ const Hardware = () => {
                                 <HardwareView setType='hwset1' />
                             </Grid>
                         </div>
+
+            
+            {/*title*/}
+            <h1>ECO WHEELS RENTAL</h1>
+
+            {/*container for both hw sets*/}
+            <div className="flex-container">
+
 
                         <Divider orientation="vertical" flexItem />
                         <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: '30px' }}>
