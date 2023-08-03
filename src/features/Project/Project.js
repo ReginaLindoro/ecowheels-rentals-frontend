@@ -12,29 +12,24 @@ const Project = ({ setIsSignedIn }) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const navigate = useNavigate();
-
     const logout = () => {
         // localStorage.removeItem('token-info');
         setIsSignedIn(false);
         navigate('/');
     };
 
-
     const handleExistingProject = () => {
         // Create a data object containing the project id
         const data = {
-            projectId: existingProjectId,
+            projectID: existingProjectId,
         };
 
         console.log("Data is ", data);
 
-        fetch('http://127.0.0.1:5000/api/projects', {
+        fetch('http://127.0.0.1:5000/api/join-project', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization'
             },
             body: JSON.stringify(data),
         })
@@ -49,7 +44,7 @@ const Project = ({ setIsSignedIn }) => {
                 if (data['message'] === 'Success') {
                     // Project id entry successful, redirect to a hardware sets page
                     console.log('Existing Project entered!');
-                    navigate('/hardwareSets');
+                    navigate('/hardware');
                 } else {
                     // Project id entry failed, show an error message
                     console.log('Could not find project. Please enter new project id or create new project.');
@@ -63,20 +58,17 @@ const Project = ({ setIsSignedIn }) => {
     const handleCreateProject = () => {
         // Create a data object containing the new project id, name, and description
         const data = {
-            projectId: createProject,
+            projectID: createProject,
             name: name,
             description: description,
         };
 
         console.log("Data is ", data);
 
-        fetch('http://127.0.0.1:5000/api/projects', {
+        fetch('http://127.0.0.1:5000/api/create-project', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data),
         })
@@ -87,7 +79,7 @@ const Project = ({ setIsSignedIn }) => {
                 if (data['message'] === 'Success') {
                     // New project created, redirect to hardware sets page
                     console.log('New Project created!');
-                    navigate('/hardwareSets');
+                    navigate('/hardware');
                 } else {
                     // New project creation failed, show an error message
                     console.log('New Project could not be created.');
