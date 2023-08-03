@@ -97,6 +97,7 @@ const Login = ({ setIsSignedIn }) => {
           navigate('/project');
         } else {
           // Login failed, show an error message
+          alert('Signup Failed: ' + data.data.message);
           console.log('Signup failed.');
         }
       })
