@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Card, CardContent, Button, Divider, TextField, Grid, Typography } from '@mui/material';
-import { ProjectView } from '../projects/ProjectView';
-
 
 const Project = ({ setIsSignedIn }) => {
 
