@@ -61,6 +61,7 @@ const Login = ({setIsSignedIn}) => {
           navigate('/project'); //pass in setIsSignedIn
         } else {
           // Login failed, show an error message
+          alert('Login Failed: ' + data.data.message);
           console.log('Login failed. Invalid username or password.');
         }
       })

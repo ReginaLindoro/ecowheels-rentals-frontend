@@ -47,7 +47,7 @@ const Project = ({ setIsSignedIn }) => {
                     navigate('/hardwareSets');
                 } else {
                     // Project id entry failed, show an error message
-                    alert('Project joining failed: ' + data.data.message);
+                    alert('Project Failed to Load: ' + data.data.message);
                     console.log('Could not find project. Please enter new project id or create new project.');
                 }
             })
@@ -83,7 +83,7 @@ const Project = ({ setIsSignedIn }) => {
                     navigate('/hardwareSets');
                 } else {
                     // New project creation failed, show an error message
-                    alert('Project creation failed: ' + data.data.message);
+                    alert('Project Creation Failed: ' + data.data.message);
                     console.log('New Project could not be created.');
                 }
             })
