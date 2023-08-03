@@ -44,9 +44,10 @@ const Project = ({ setIsSignedIn }) => {
                 if (data['message'] === 'Success') {
                     // Project id entry successful, redirect to a hardware sets page
                     console.log('Existing Project entered!');
-                    navigate('/hardware');
+                    navigate('/hardwareSets');
                 } else {
                     // Project id entry failed, show an error message
+                    alert('Project joining failed: ' + data.data.message);
                     console.log('Could not find project. Please enter new project id or create new project.');
                 }
             })
@@ -79,9 +80,10 @@ const Project = ({ setIsSignedIn }) => {
                 if (data['message'] === 'Success') {
                     // New project created, redirect to hardware sets page
                     console.log('New Project created!');
-                    navigate('/hardware');
+                    navigate('/hardwareSets');
                 } else {
                     // New project creation failed, show an error message
+                    alert('Project creation failed: ' + data.data.message);
                     console.log('New Project could not be created.');
                 }
             })
