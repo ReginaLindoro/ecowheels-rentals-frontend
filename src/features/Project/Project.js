@@ -108,7 +108,7 @@ const Project = () => {
                                 <TextField id="existing-project-id" required label="Project Id" value={existingProjectId} onChange={(e) => setExistingProjectId(e.target.value)}></TextField>
                             </Grid>
                             <Grid style={{ display: 'grid', paddingTop: '96px' }}>
-                                <Button variant="contained" onClick={handleExistingProject}>Login</Button>
+                                <Button variant="contained" onClick={handleExistingProject}>View Products</Button>
                             </Grid>
                         </div>
                         <Divider orientation="vertical" flexItem />
@@ -124,7 +124,7 @@ const Project = () => {
                                 <TextField id="new-project-description" required label="Description" value={description} onChange={(e) => setDescription(e.target.value)}></TextField>
                             </Grid>
                             <Grid style={{ display: 'grid', paddingTop: '30px' }}>
-                                <Button variant="contained" onClick={handleCreateProject}>Sign Up</Button>
+                                <Button variant="contained" onClick={handleCreateProject}>Create & View</Button>
                             </Grid>
                         </div>
                     </div>
