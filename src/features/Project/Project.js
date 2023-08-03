@@ -1,21 +1,22 @@
 // Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Card, CardContent, Button, Divider, TextField, Grid, Typography, OutlinedInput, InputAdornment, IconButton, FormControl, InputLabel } from '@mui/material';
-import { Visibility, VisibilityOff } from "@mui/icons-material"
+import { Card, CardContent, Button, Divider, TextField, Grid, Typography } from '@mui/material';
 import { ProjectView } from '../projects/ProjectView';
 
 
-const Project = () => {
+const Project = ({ setIsSignedIn }) => {
 
     const [existingProjectId, setExistingProjectId] = useState('');
     const [createProject, setCreateProject] = useState('');
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const navigate = useNavigate();
-    const [showLoginPassword, setShowLoginPassword] = React.useState(false);
-    const [showSignupPassword, setShowSignupPassword] = React.useState(false);
-    const [showSignupReenterPassword, setShowSignupReenterPassword] = React.useState(false);
+    const logout = () => {
+        // localStorage.removeItem('token-info');
+        setIsSignedIn(false);
+        navigate('/');
+    };
 
     const handleExistingProject = () => {
         // Create a data object containing the project id
@@ -98,7 +99,9 @@ const Project = () => {
 
     return (
         <div>
-            {/* <h1>This is the Projects Page</h1> */}
+            <div style={{ display: "flex" }}>
+                <Button style={{ color: "white", marginLeft: "auto" }} onClickCapture={logout}>Sign out</Button>
+            </div>
             <Card style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '5% 20%' }}>
                 <CardContent>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>

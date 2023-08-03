@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Card, CardContent, Button, Divider, TextField, Grid, Typography, OutlinedInput, InputAdornment, IconButton, FormControl, InputLabel } from '@mui/material';
 import { Visibility, VisibilityOff } from "@mui/icons-material"
+import { PropTypes } from 'prop-types';
 
-const Login = () => {
+const Login = ({setIsSignedIn}) => {
 
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
@@ -27,6 +28,7 @@ const Login = () => {
   const handleMouseDownReenterPasswordSignup = (event) => {
     event.preventDefault();
   };
+  // const [isSignedIn, setIsSignedIn] = useState(false);
 
   const handleLogin = () => {
     // Create a data object containing the username and password
@@ -58,7 +60,8 @@ const Login = () => {
         if (data['message'] === 'Success') {
           // Login successful, redirect to a projects page
           console.log('Login successful!');
-          navigate('/projects');
+          setIsSignedIn(true);
+          navigate('/project'); //pass in setIsSignedIn
         } else {
           // Login failed, show an error message
           console.log('Login failed. Invalid username or password.');
@@ -95,7 +98,8 @@ const Login = () => {
         if (data['message'] === 'Success') {
           // Login successful, redirect to a projects page
           console.log('Signup successful!');
-          navigate('/projects');
+          setIsSignedIn(true);
+          navigate('/project');
         } else {
           // Login failed, show an error message
           console.log('Signup failed.');
@@ -205,5 +209,9 @@ const Login = () => {
     </div>
   );
 };
+
+Login.propTypes = {
+  setIsSignedIn: PropTypes.func.isRequired
+}
 
 export default Login;
