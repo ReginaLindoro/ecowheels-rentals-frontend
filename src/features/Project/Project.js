@@ -12,11 +12,13 @@ const Project = ({ setIsSignedIn }) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const navigate = useNavigate();
+
     const logout = () => {
         // localStorage.removeItem('token-info');
         setIsSignedIn(false);
         navigate('/');
     };
+
 
     const handleExistingProject = () => {
         // Create a data object containing the project id
